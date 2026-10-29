@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}Dataset{% endblock %}
+{% block content %}<h1>Dataset Explorer</h1>
+<section class="card"><h2>MNIST</h2><p>MNIST is a benchmark of handwritten digits loaded here through TensorFlow/Keras. It has 60,000 training and 10,000 test images, each 28 × 28 pixel grayscale, in 10 classes (0–9). The model learns from the training set; the separate test set measures how well it generalises to unseen images.</p></section>
+<section class="card"><h2>Real samples</h2><div id="gallery" class="gallery"><p class="muted">Loading…</p></div></section>
+<section class="card"><h2>Class distribution</h2><canvas id="distChart" height="120"></canvas></section>{% endblock %}

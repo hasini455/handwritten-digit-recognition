@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}History{% endblock %}
+{% block content %}<h1>Prediction History</h1>
+<section class="card"><div class="row"><label>Filter by digit <select id="flt"><option value="">All</option>{% for i in range(10) %}<option>{{i}}</option>{% endfor %}</select></label>
+<button class="btn ghost" id="clr">Clear history</button></div>
+<div class="scroll"><table id="ht"></table></div><p id="he" class="muted">No predictions yet.</p></section>{% endblock %}

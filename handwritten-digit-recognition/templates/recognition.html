@@ -1,0 +1,32 @@
+{% extends "base.html" %}{% block title %}Recognition Studio{% endblock %}
+{% block content %}
+<h1>Digit Recognition Studio</h1>
+<div class="grid2">
+<section class="card">
+ <div class="tabs" role="tablist"><button class="tab on" data-mode="draw" role="tab">Draw</button><button class="tab" data-mode="upload" role="tab">Upload</button></div>
+ <div id="drawPane">
+  <canvas id="cv" width="280" height="280" aria-label="Drawing canvas"></canvas>
+  <div class="row"><label>Stroke <input type="range" id="brush" min="8" max="30" value="18"></label>
+  <button class="btn ghost" id="undo">Undo</button><button class="btn ghost" id="clear">Clear</button></div>
+  <button class="btn" id="goDraw">Recognize Drawing</button>
+ </div>
+ <div id="uploadPane" hidden>
+  <label class="drop" for="file">Choose a PNG, JPG or JPEG (max 4 MB)</label>
+  <input type="file" id="file" accept=".png,.jpg,.jpeg,image/png,image/jpeg" hidden>
+  <img id="prev" alt="Selected image preview" hidden>
+  <div class="row"><button class="btn ghost" id="rm" hidden>Remove image</button></div>
+  <button class="btn" id="goUp" disabled>Recognize Digit</button>
+ </div>
+ <p id="err" class="err" role="alert"></p>
+</section>
+<section class="card" id="result">
+ <p class="muted" id="idle">Your prediction will appear here.</p>
+ <div id="spin" hidden>Processing…</div>
+ <div id="out" hidden>
+  <div class="big" id="digit"></div><p>Confidence: <b id="conf"></b></p>
+  <canvas id="probChart" height="220"></canvas>
+  <p class="muted small">Confidence is the model's estimated probability, not a guarantee of correctness.</p>
+  <button class="btn ghost" id="again">Try Another Digit</button>
+ </div>
+</section></div>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Architecture{% endblock %}
+{% block content %}<h1>Model Architecture</h1>
+<section class="card"><h2>Layer by layer (from the trained model)</h2><div id="layers" class="pipeline col"><p class="muted">Loading…</p></div>
+<p id="meta" class="muted"></p></section>
+<section class="card"><h2>Building blocks</h2>
+<p><b>Convolution</b> slides small filters over the image to detect strokes and edges. <b>ReLU</b> keeps positive activations. <b>Pooling</b> shrinks feature maps and adds shift tolerance. <b>Flatten</b> turns feature maps into a vector. <b>Dense</b> layers combine features. <b>Dropout</b> randomly disables units during training to reduce overfitting. <b>Softmax</b> converts 10 outputs into probabilities summing to 1.</p></section>{% endblock %}

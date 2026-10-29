@@ -1,0 +1,10 @@
+{% extends "base.html" %}{% block title %}Analytics{% endblock %}
+{% block content %}<h1>Model Analytics</h1><div id="empty" class="card" hidden></div>
+<div id="data" hidden>
+<section class="grid4"><div class="card stat"><span>Test accuracy</span><b id="ta"></b></div><div class="card stat"><span>Test loss</span><b id="tl"></b></div>
+<div class="card stat"><span>Correct (test)</span><b id="ok"></b></div><div class="card stat"><span>Incorrect (test)</span><b id="bad"></b></div></section>
+<div class="grid2"><section class="card"><h2>Training vs validation accuracy</h2><canvas id="accC"></canvas></section>
+<section class="card"><h2>Training vs validation loss</h2><canvas id="lossC"></canvas></section></div>
+<section class="card"><h2>Confusion matrix (test set; rows = true, columns = predicted)</h2><div class="scroll"><table id="cm"></table></div></section>
+<section class="card"><h2>Classification report</h2><div class="scroll"><table id="rep"></table></div></section>
+<section class="card"><h2>Misclassified test images</h2><div id="mis" class="gallery"></div></section></div>{% endblock %}

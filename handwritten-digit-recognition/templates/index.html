@@ -1,0 +1,24 @@
+{% extends "base.html" %}{% block title %}Overview{% endblock %}
+{% block content %}
+<section class="hero"><p class="eyebrow">Deep Learning Powered Image Classification</p>
+<h1>AI-Based Handwritten Digit Recognition System</h1>
+<p class="lead">Transform handwritten digits into intelligent predictions. A Convolutional Neural Network trained on MNIST classifies digits you upload or draw.</p>
+<a class="btn" href="/recognition">Try Digit Recognition</a></section>
+<section class="grid4">
+ <div class="card stat"><span>Training images</span><b>60,000</b></div>
+ <div class="card stat"><span>Test images</span><b>10,000</b></div>
+ <div class="card stat"><span>Digit classes</span><b>10</b></div>
+ <div class="card stat"><span title="Measured on the 10,000 unseen test images">Model test accuracy</span><b id="acc">—</b></div>
+</section>
+<section class="card"><h2>How it works</h2>
+<p>Handwritten digit recognition maps a picture of a digit to one of ten classes. The image is cleaned and resized, a CNN extracts visual features (strokes, curves, loops), and a softmax layer outputs a probability for each digit.</p>
+<div class="pipeline"><span>Image Input</span><i>→</i><span>Preprocessing</span><i>→</i><span>CNN Model</span><i>→</i><span>Prediction</span><i>→</i><span>Evaluation</span></div></section>
+<section class="card"><h2>Why CNNs for vision?</h2>
+<p>Convolutional layers reuse small filters across the whole image, so they detect patterns wherever they appear while using far fewer parameters than fully connected networks. Pooling adds tolerance to small shifts, which suits handwriting.</p></section>
+<section class="card"><h2>Latest prediction</h2><div id="latest" class="muted">No predictions yet.</div></section>
+<section class="grid4">
+ <a class="card link" href="/recognition"><h3>Recognition Studio</h3><p>Upload or draw a digit.</p></a>
+ <a class="card link" href="/analytics"><h3>Model Analytics</h3><p>Real training &amp; test results.</p></a>
+ <a class="card link" href="/dataset"><h3>Dataset Explorer</h3><p>Browse MNIST samples.</p></a>
+ <a class="card link" href="/about"><h3>About the Project</h3><p>Abstract, method, limits.</p></a>
+</section>{% endblock %}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{% endblock %} · Digit Recognition CNN</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script src="https://unpkg.com/lucide@0.383.0/dist/umd/lucide.min.js"></script>
+</head>
+<body data-page="{{ page }}">
+<header class="top">
+  <button id="menuBtn" class="icon-btn" aria-label="Toggle navigation"><i data-lucide="menu"></i></button>
+  <a class="brand" href="/"><span class="logo">CNN</span><span>Digit Recognition</span></a>
+  <span class="grow"></span>
+  <span id="status" class="pill" title="Model readiness">Checking model…</span>
+  <button id="themeBtn" class="icon-btn" aria-label="Switch light/dark theme"><i data-lucide="sun-moon"></i></button>
+</header>
+<nav id="side" class="side" aria-label="Main">
+  {% for n, path, label, icon in pages %}<a href="{{ path }}" class="{{ 'active' if n == page }}"><i data-lucide="{{ icon }}"></i>{{ label }}</a>{% endfor %}
+</nav>
+<main>{% block content %}{% endblock %}
+<footer>AI-Based Handwritten Digit Recognition System · Academic major project (AI &amp; ML) · © 2026. All rights reserved.</footer>
+</main>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% if page == 'recognition' %}<script src="{{ url_for('static', filename='js/recognition.js') }}"></script>
+{% elif page in ['dataset','architecture','analytics'] %}<script src="{{ url_for('static', filename='js/analytics.js') }}"></script>{% endif %}
+</body></html>

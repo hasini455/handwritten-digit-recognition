@@ -1,0 +1,17 @@
+{% extends "base.html" %}{% block title %}About{% endblock %}
+{% block content %}<h1>About the Project</h1>
+{% for t, b in [
+("Abstract","This project demonstrates image classification with deep learning. A Convolutional Neural Network is trained on the MNIST dataset to recognise handwritten digits, and is served through a Flask web application."),
+("Problem statement","Handwriting varies widely between people. The goal is to classify a 28 × 28 grayscale digit image into one of ten classes automatically."),
+("Objectives","Build and train a CNN on MNIST; evaluate it honestly on unseen data; provide a web interface for upload and drawing input; record prediction history."),
+("Scope","Single isolated digits (0–9). Multi-digit numbers, letters and full documents are out of scope."),
+("Dataset","MNIST: 60,000 training and 10,000 test images, 28 × 28 grayscale, 10 classes. 10% of the training set is used for validation."),
+("Methodology","Normalise pixels to 0–1, reshape to 28 × 28 × 1, train the CNN with Adam and cross-entropy loss, evaluate on the test set, then preprocess user images the same way as MNIST before predicting."),
+("Technologies","Python, Flask, TensorFlow/Keras, NumPy, Pillow, scikit-learn, SQLite, HTML/CSS/JavaScript, Chart.js."),
+("Evaluation metrics","Accuracy, loss, confusion matrix, and per-class precision, recall and F1-score."),
+("Applications","Reading digits on forms, postal processing and document digitisation are typical uses of digit recognition. This prototype is not production-ready for them."),
+("Limitations","Trained only on clean MNIST-style digits; photos with clutter, unusual styles or touching digits may be misclassified."),
+("Future enhancements","Data augmentation, multi-digit segmentation, and comparison with other architectures."),
+("Conclusion","The project shows an end-to-end workflow from data to a deployed CNN classifier with transparent evaluation.")] %}
+<section class="card"><h2>{{ t }}</h2><p>{{ b }}</p></section>{% endfor %}
+<section class="card"><h2>Methodology flow</h2><div class="pipeline"><span>Load MNIST</span><i>→</i><span>Normalise &amp; reshape</span><i>→</i><span>Train CNN</span><i>→</i><span>Evaluate on test set</span><i>→</i><span>Save model</span><i>→</i><span>Serve via Flask</span></div></section>{% endblock %}
