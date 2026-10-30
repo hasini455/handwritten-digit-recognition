@@ -10,6 +10,10 @@ MODEL_PATH = os.path.join(BASE, "model", "digit_cnn.keras")
 METRICS = os.path.join(BASE, "artifacts", "metrics.json")
 SAMPLES = os.path.join(BASE, "artifacts", "samples.json")
 DB = os.path.join(BASE, "instance", "history.db")
+
+# Create instance folder automatically
+os.makedirs(os.path.dirname(DB), exist_ok=True)
+
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = 4 * 1024 * 1024  # 4 MB upload limit
 ALLOWED = {"png", "jpg", "jpeg"}
